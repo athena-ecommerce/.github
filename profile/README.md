@@ -196,12 +196,12 @@ Base: `http://127.0.0.1:8000`
 
 ### Partes apoiadas por IA
 
-| Componente                                          | Ferramenta | O que foi gerado                                           | Revisão feita                                                                                                |
-|-----------------------------------------------------|------------|------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| `ROUTES/carrinho.py` + `SCHEMAS/carrinho_schema.py` | Claude     | Estrutura do carrinho baseada em Redis (HASH, TTL)         | Revisado, testado via Swagger, ajustado para o modelo de dados real                                          |
-| `DEPENDENCIES/redis_client.py`                      | Claude     | Cliente Redis como dependency do FastAPI                   | Revisado; ajustado import para evitar estender o import circular pré-existente em `DEPENDENCIES/__init__.py` |
-| `ROUTES/produtos.py` (correção)                     | Claude     | Diagnóstico do uso incorreto de `Depends(verificar_token)` | Corrigido manualmente para `verificar_token_oauth` após entender a causa                                     |
-| Documentação (`README.md`)                          | Claude     | Estruturação e redação da documentação técnica             | Conferida contra o código real do repositório                                                                |
+| Componente                     | Ferramenta | O que foi gerado                                           | Revisão feita                                                                                                |
+|--------------------------------|------------|------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| `rota /cart`                   | Claude     | Estrutura do carrinho baseada em Redis (HASH, TTL)         | Revisado, testado via Swagger, ajustado para o modelo de dados real                                          |
+| `DEPENDENCIES/redis_client.py` | Claude     | Cliente Redis como dependency do FastAPI                   | Revisado; ajustado import para evitar estender o import circular pré-existente em `DEPENDENCIES/__init__.py` |
+| `rota /arts`                   | Claude     | Diagnóstico do uso incorreto de `Depends(verificar_token)` | Corrigido manualmente para `verificar_token_oauth` após entender a causa                                     |
+| Documentação (`README.md`)     | Claude     | Estruturação e redação da documentação técnica             | Conferida contra o código real do repositório                                                                |
 
 _Preencher com as partes que o restante do grupo desenvolveu com apoio de IA (ex: frontend, autenticação)._
 
