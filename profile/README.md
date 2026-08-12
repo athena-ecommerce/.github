@@ -30,10 +30,10 @@ Marketplace de **artes/quadros**, conectando artistas independentes a compradore
 | Nome                        | GitHub               | Função        | Responsabilidades                                          |
 |-----------------------------|----------------------|---------------|------------------------------------------------------------|
 | Nicolas Isepe Paz           | @NicolasIsepe        | Backend       | Endpoints de usuários e pagamentos                         |
-| Samuel Pimenta Hironimus    | @samuelpimentah      | Backend       | Endpoints de artes e carrinho                              |
+| Samuel Pimenta Hironimus    | @samuelpimentah      | Backend       | Endpoints de artes e carrinho e documentação               |
 | Lorenzo Lima de Oliveira    | @LorenzoOliveira-git | Backend       | Autenticação, refresh tokens, recuperação de senha, e-mail |
 | Raphaely Mendes Sales       | @raphaxnz            | Frontend      | Catálogo, carrinho, checkout (JS Vanilla)                  |
-| Isabelly Vila Silva da Hora | @IsaDaHxra           | Frontend / QA | Acessibilidade, responsividade, testes                     |
+| Isabelly Vila Silva da Hora | @IsaDaHxra           | Frontend      | Acessibilidade, responsividade, testes                     |
 
 > Atualize esta tabela com os nomes e usuários reais do grupo antes da entrega.
 
@@ -101,7 +101,7 @@ Siga os passos abaixo:
 1. Clone o repositório junto com seus submódulos:
 
 ```bash
-git clone --recurse-submodules URL_DO_REPOSITORIO
+git clone --recurse-submodules https://github.com/athena-ecommerce/projeto-completo.git
 ```
 
 2. Entre na pasta do projeto:
