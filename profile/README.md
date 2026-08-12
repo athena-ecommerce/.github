@@ -82,75 +82,80 @@ Modelagem relacional normalizada cobrindo: usuários (clientes/artistas/administ
 
 ---
 
-## 🚀 Instruções de Execução (ponta a ponta)
+## 🚀 Instruções de Execução
 
-### Pré-requisitos
+### 🗄️ Subir Banco de Dados
 
-- **Python** 3.11+
-- **PostgreSQL** 14+
-- **Redis** (local via Docker, ou Redis Cloud / Upstash)
-- **Git**
-- Navegador moderno (Chrome, Firefox, Edge)
+Crie o banco de dados **uma única vez**, executando o script SQL disponível em:
 
-### 1️⃣ Clonar o repositório
-
-```bash
-git clone <url-do-repositorio>
-cd Athena
+```text
+backend/README.md
 ```
 
-### 2️⃣ Subir o Backend (FastAPI + Uvicorn)
+Escolha um banco de dados PostgreSQL operacional para executar o script.
+
+### 🐳 Rodar o Projeto Completo
+
+Siga os passos abaixo:
+
+1. Clone o repositório junto com seus submódulos:
+
+```bash
+git clone --recurse-submodules URL_DO_REPOSITORIO
+```
+
+2. Entre na pasta do projeto:
+
+```bash
+cd projeto-completo
+```
+
+3. Entre na pasta do backend:
 
 ```bash
 cd backend
-
-# Ambiente virtual
-python -m venv venv
-venv\Scripts\activate        # Windows
-# source venv/bin/activate   # Linux/macOS
-
-# Dependências
-pip install -r requirements.txt
-
-# Variáveis de ambiente
-copy .env.example .env       # Windows
-# cp .env.example .env       # Linux/macOS
-# preencher DATABASE_URL, SECRET_KEY, REDIS_*, CLOUDINARY_* e ATHENA_EMAIL/PASSWORD
-
-# Criar o banco (uma vez) executando o script SQL de backend/README.md
-psql -U seu_usuario -d athena_db -f script_banco.sql
-
-# Subir o servidor
-uvicorn main:app --reload --port 8000
 ```
 
-Backend disponível em `http://127.0.0.1:8000` — documentação interativa em `http://127.0.0.1:8000/docs`.
+4. Crie o arquivo `.env` a partir do `.env.example`.
 
-### 3️⃣ Subir o Frontend (JS Vanilla)
+**Windows:**
 
 ```bash
-cd ../website
-
-# Servir como arquivo estático, por exemplo:
-python -m http.server 5500
-# ou usar a extensão Live Server do VS Code
+copy .env.example .env
 ```
 
-Frontend disponível em `http://localhost:5500`.
+**Linux/macOS:**
 
-> Verifique se a origem do frontend está liberada em `origins` no `backend/main.py` (CORS).
+```bash
+cp .env.example .env
+```
 
-### 4️⃣ Testar o fluxo completo
+5. Preencha as informações do arquivo `.env`, principalmente as configurações do banco de dados escolhido.
 
-1. Abrir `http://localhost:5500`
-2. Criar conta (`/auth/signup`) e logar (`/auth/login` ou `/auth/login-form`)
-3. Navegar pelo catálogo de artes, aplicar filtros
-4. Adicionar uma arte ao carrinho
-5. Ir para o checkout, informar/selecionar endereço (com busca por CEP)
-6. Finalizar o pedido e conferir a confirmação
+6. Volte para a pasta raiz do projeto:
 
-**Console do navegador:** sem erros de CORS ou 404.  
-**Network tab:** requisições para `http://127.0.0.1:8000/*` respondendo 200/201.
+```bash
+cd ..
+```
+
+7. Suba os containers:
+
+```bash
+docker compose up --build
+```
+
+### 🌐 Testando o Projeto
+
+1. Abra seu navegador.
+
+2. Acesse:
+
+```text
+http://localhost:80
+```
+
+A aplicação web estará disponível nesse endereço.
+
 
 ---
 
