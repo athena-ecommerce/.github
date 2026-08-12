@@ -1,0 +1,206 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# ----- Arquivos temporários do Office/OneDrive -----
+~$*
+~*.tmp
+~*.tmp.*
+# OneDrive: arquivos temporários e locks
+~*.lnk
+
+# ----- Editor / IDE -----
+# VS Code
+.vscode/
+# IntelliJ / PyCharm / WebStorm etc.
+.idea/
+
+# Sublime
+*.sublime-workspace
+*.sublime-project
+
+# JetBrains local history
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/dictionaries
+.idea/**/shelf
+
+# emacs temp
+.#*
+
+# ----- Linguagens e ferramentas comuns -----
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+pip-wheel-metadata/
+pip-log.txt
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+coverage.xml
+coverage/
+nose2-junit.xml
+*.cover
+*.py,cover
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+*.log
+*.pot
+*.mo
+
+# Keep example env files but ignore real secrets
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+package-lock.json
+*.tgz
+.pnp/
+.pnp.js
+.parcel-cache/
+dist/
+build/
+out/
+.next/
+.nuxt/
+/.cache
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+lerna-debug.log*
+
+# Compiled source # (Java, Scala, Kotlin)
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+*.o
+*.ko
+*.obj
+*.elf
+
+# Java / Maven / Gradle
+target/
+bin/
+build/
+*.iml
+.classpath
+.project
+.settings/
+
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Go
+bin/
+pkg/
+*.exe
+
+# Rust
+target/
+
+# Ruby
+.bundle/
+vendor/bundle
+log/
+tmp/
+*.gem
+
+# PHP
+vendor/
+composer.lock
+
+# Docker
+*.env.local
+docker-compose.override.yml
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+crash.log
+override.tf
+override.tf.json
+terraform.tfvars
+terraform.tfvars.json
+
+# Kubernetes
+.kube/
+
+# CI / CD
+# workspace-specific CI files
+.terraform.lock.hcl
+
+# Coverage
+.coverage
+.coverage.*
+coverage/
+htmlcov/
+*.lcov
+
+# Test output
+.pytest_cache/
+test-results/
+
+# Documentation
+docs/_build/
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Misc
+secret-*.key
+*.pem
+*.p12
+*.jks
+
+# Ensure we don't accidentally ignore these important repo files
+!.github/
+!.gitignore
+
+# Fallback: ignore large binaries and executables
+*.exe
+*.dll
+*.so
+*.dylib
+
+# End of file
