@@ -81,84 +81,12 @@ Modelagem relacional normalizada cobrindo: usuários (clientes/artistas/administ
 ---
 
 ## 🚀 Instruções de Execução
-
-### 🗄️ Subir Banco de Dados
-
-Crie o banco de dados **uma única vez**, executando o script SQL disponível em:
-
-```text
-backend/README.md
-```
-
-Escolha um banco de dados PostgreSQL operacional para executar o script.
+O deploy do projeto foi feito via Render e com banco de dados em nuvem no Aiven, portanto, é possível acessar o website via link público.
 
 ### 🐳 Rodar o Projeto Completo
 
 Para acessar o projeto completo e funcional sem precisa configurar nada na própria máquina, acesse:
 https://athena-frontend-83xp.onrender.com/index.html
-
-Siga os passos abaixo:
-
-1. Clone o repositório junto com seus submódulos:
-
-```bash
-git clone --recurse-submodules https://github.com/athena-ecommerce/projeto-completo.git
-```
-
-2. Entre na pasta do projeto:
-
-```bash
-cd projeto-completo
-```
-
-3. Entre na pasta do backend:
-
-```bash
-cd backend
-```
-
-4. Crie o arquivo `.env` a partir do `.env.example`.
-
-**Windows:**
-
-```bash
-copy .env.example .env
-```
-
-**Linux/macOS:**
-
-```bash
-cp .env.example .env
-```
-
-5. Preencha as informações do arquivo `.env`, principalmente as configurações do banco de dados escolhido.
-
-6. Volte para a pasta raiz do projeto:
-
-```bash
-cd ..
-```
-
-7. Suba os containers:
-
-```bash
-docker compose up --build
-```
-
-### 🌐 Testando o Projeto
-
-1. Abra seu navegador.
-
-2. Acesse:
-
-```text
-http://localhost:80
-```
-
-A aplicação web estará disponível nesse endereço.
-
-
----
 
 ## 📡 Endpoints da API (resumo)
 
