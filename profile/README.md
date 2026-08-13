@@ -35,8 +35,6 @@ Marketplace de **artes/quadros**, conectando artistas independentes a compradore
 | Raphaely Mendes Sales       | @raphaxnz            | Frontend      | Catálogo, carrinho, checkout (JS Vanilla)                  |
 | Isabelly Vila Silva da Hora | @IsaDaHxra           | Frontend      | Acessibilidade, responsividade, testes                     |
 
-> Atualize esta tabela com os nomes e usuários reais do grupo antes da entrega.
-
 ---
 
 ## 🛠️ Stack & Justificativas
@@ -95,6 +93,9 @@ backend/README.md
 Escolha um banco de dados PostgreSQL operacional para executar o script.
 
 ### 🐳 Rodar o Projeto Completo
+
+Para acessar o projeto completo e funcional sem precisa configurar nada na própria máquina, acesse:
+https://athena-frontend-83xp.onrender.com/index.html
 
 Siga os passos abaixo:
 
@@ -163,32 +164,32 @@ A aplicação web estará disponível nesse endereço.
 
 Base: `http://127.0.0.1:8000`
 
-| Método | Endpoint | Descrição |
-|--------|----------|-----------|
-| `POST` | `/auth/signup` | Cadastro de usuário |
-| `POST` | `/auth/login` | Login (JSON) |
-| `POST` | `/auth/login-form` | Login (form, usado no Swagger) |
-| `GET` | `/auth/refresh` | Renovar access token |
-| `POST` | `/auth/resetpassword/email` | Enviar código de recuperação |
-| `POST` | `/auth/resetpassword/validation` | Validar código |
-| `POST` | `/auth/resetpassword/newpassword` | Definir nova senha |
-| `GET` | `/arts/` | Listar artes (com filtros) |
-| `GET` | `/arts/{id_produto}` | Detalhes de uma arte |
-| `GET` | `/arts/artist/me` | Minhas artes (artista logado) |
-| `POST` | `/arts/` | Cadastrar arte (artista) |
-| `PUT` | `/arts/{id_produto}` | Editar arte (dono) |
-| `DELETE` | `/arts/{id_produto}` | Remover arte (dono) |
-| `GET` | `/cart/` | Ver carrinho |
-| `POST` | `/cart/items` | Adicionar item ao carrinho |
-| `DELETE` | `/cart/items/{art_id}` | Remover item do carrinho |
-| `DELETE` | `/cart/` | Limpar carrinho |
-| `POST` | `/purchase/` | Registrar pedido |
-| `GET` | `/purchase/` | Listar pedidos do usuário |
-| `GET` | `/user/profile` | Perfil do usuário |
-| `POST` | `/user/adicionar-endereco` | Cadastrar endereço |
-| `GET` | `/user/cep/{cep}` | Buscar endereço por CEP |
+| Método   | Endpoint                          | Descrição                      |
+|----------|-----------------------------------|--------------------------------|
+| `POST`   | `/auth/signup`                    | Cadastro de usuário            |
+| `POST`   | `/auth/login`                     | Login (JSON)                   |
+| `POST`   | `/auth/login-form`                | Login (form, usado no Swagger) |
+| `GET`    | `/auth/refresh`                   | Renovar access token           |
+| `POST`   | `/auth/resetpassword/email`       | Enviar código de recuperação   |
+| `POST`   | `/auth/resetpassword/validation`  | Validar código                 |
+| `POST`   | `/auth/resetpassword/newpassword` | Definir nova senha             |
+| `GET`    | `/arts/`                          | Listar artes (com filtros)     |
+| `GET`    | `/arts/{id_produto}`              | Detalhes de uma arte           |
+| `GET`    | `/arts/artist/me`                 | Minhas artes (artista logado)  |
+| `POST`   | `/arts/`                          | Cadastrar arte (artista)       |
+| `PUT`    | `/arts/{id_produto}`              | Editar arte (dono)             |
+| `DELETE` | `/arts/{id_produto}`              | Remover arte (dono)            |
+| `GET`    | `/cart/`                          | Ver carrinho                   |
+| `POST`   | `/cart/items`                     | Adicionar item ao carrinho     |
+| `DELETE` | `/cart/items/{art_id}`            | Remover item do carrinho       |
+| `DELETE` | `/cart/`                          | Limpar carrinho                |
+| `POST`   | `/purchase/`                      | Registrar pedido               |
+| `GET`    | `/purchase/`                      | Listar pedidos do usuário      |
+| `GET`    | `/user/profile`                   | Perfil do usuário              |
+| `POST`   | `/user/adicionar-endereco`        | Cadastrar endereço             |
+| `GET`    | `/user/cep/{cep}`                 | Buscar endereço por CEP        |
 
-**Documentação detalhada de cada endpoint (payloads, respostas e erros):** [`backend/README.md`](../../backend/README.md)
+**Documentação detalhada de cada endpoint (payloads, respostas e erros) acesse o README do backend** [`backend`](https://github.com/athena-ecommerce/backend))
 
 ---
 
@@ -196,19 +197,20 @@ Base: `http://127.0.0.1:8000`
 
 ### Ferramentas utilizadas
 
-- **Claude (Anthropic)** — apoio na estruturação de endpoints do backend (artes, carrinho), organização de arquivos (`SCHEMAS`, `ROUTES`, `DEPENDENCIES`), revisão de bugs (ex: dependência de autenticação incompatível em `ROUTES/produtos.py`) e geração desta documentação.
-- _Preencher outras ferramentas usadas pelo grupo (ChatGPT, Copilot etc.), se houver._
+- **Claude (Anthropic)** — apoio na estruturação de endpoints do backend (artes, carrinho), organização de arquivos (`SCHEMAS`, `ROUTES`, `DEPENDENCIES`), revisão de bugs e geração desta documentação.
+- **Codex (OpenAI)** — revisão e inserção de comentários explicativos no backend e no JavaScript do website, além da atualização desta documentação.
 
 ### Partes apoiadas por IA
 
-| Componente                     | Ferramenta | O que foi gerado                                           | Revisão feita                                                                                                |
-|--------------------------------|------------|------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| `rota /cart`                   | Claude     | Estrutura do carrinho baseada em Redis (HASH, TTL)         | Revisado, testado via Swagger, ajustado para o modelo de dados real                                          |
-| `DEPENDENCIES/redis_client.py` | Claude     | Cliente Redis como dependency do FastAPI                   | Revisado; ajustado import para evitar estender o import circular pré-existente em `DEPENDENCIES/__init__.py` |
-| `rota /arts`                   | Claude     | Diagnóstico do uso incorreto de `Depends(verificar_token)` | Corrigido manualmente para `verificar_token_oauth` após entender a causa                                     |
-| Documentação (`README.md`)     | Claude     | Estruturação e redação da documentação técnica             | Conferida contra o código real do repositório                                                                |
-
-_Preencher com as partes que o restante do grupo desenvolveu com apoio de IA (ex: frontend, autenticação)._
+| Componente                              | Ferramenta              | O que foi gerado                                                         | Revisão feita                                                                                                |
+|-----------------------------------------|-------------------------|--------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| `rota /cart`                            | Claude                  | Estrutura do carrinho baseada em Redis (HASH, TTL)                       | Revisado, testado via Swagger, ajustado para o modelo de dados real                                          |
+| `DEPENDENCIES/redis_client.py`          | Claude                  | Cliente Redis como dependency do FastAPI                                 | Revisado; ajustado import para evitar estender o import circular pré-existente em `DEPENDENCIES/__init__.py` |
+| `rota /arts`                            | Claude                  | Diagnóstico do uso incorreto de `Depends(verificar_token)`               | Corrigido manualmente para `verificar_token_oauth` após entender a causa                                     |
+| Documentação (`README.md`)              | Claude/Codex            | Estruturação, redação e atualização da documentação técnica              | Conferida contra o código real do repositório                                                                |
+| Backend (`ROUTES`, `MODELS`, `SCHEMAS`) | Codex                   | Comentários curtos para explicar responsabilidades e fluxos              | Revisados para manter linguagem natural e não comentar operações óbvias                                      |
+| Frontend (`website/`)                   | Codex                   | Correção de erros em JavaScript e comentários dos principais fluxos      | Revisados junto ao código existente                                                                          |
+| Frontend (`HTML` e `CSS`)               | IA com revisão do grupo | Apoio na montagem de estruturas mais modernas, responsivas e organizadas | Adaptados ao visual e às necessidades do Athena                                                              |
 
 ### Processo de revisão crítica
 
@@ -225,31 +227,16 @@ Qualquer integrante do grupo é capaz de explicar o funcionamento de qualquer tr
 
 | #  | Critério                             | Status    | Evidência                           |
 |----|--------------------------------------|-----------|-------------------------------------|
-| 1  | Imagens com `alt` descritivo         | ⬜         | Código HTML                         |
-| 2  | Contraste ≥ 4.5:1                    | ⬜         | WebAIM Contrast Checker             |
-| 3  | Navegação completa por teclado       | ⬜         | Teste manual em carrinho e checkout |
-| 4  | Foco visível                         | ⬜         | Inspeção visual                     |
-| 5  | HTML semântico                       | ⬜         | Lighthouse / axe DevTools           |
-| 6  | Labels associadas + erros acessíveis | ⬜         | Inspeção HTML / NVDA                |
-| 7  | Nenhuma info só por cor              | ⬜         | Filtro de daltonismo                |
-| 8  | Zoom até 200% sem quebrar            | ⬜         | Ctrl + scroll                       |
-| 9  | `lang="pt-BR"` no `<html>`           | ⬜         | Inspeção HTML                       |
-| 10 | Lighthouse Acessibilidade ≥ 90       | ⬜         | Execução em sala                    |
-
-> Marcar cada item como concluído (✅) conforme validado, e anexar os resultados em **`lighthouse-report.md`** na raiz do repositório, com no mínimo 3 execuções (Chrome anônimo, sem extensões, categoria Acessibilidade, Desktop) e a mediana calculada.
-
----
-
-## 🏷️ Controle de Versão
-
-**Tag de entrega (congelar o MVP para a apresentação):**
-
-```bash
-git tag -a v1.0-pitch -m "MVP Athena - versão para apresentação"
-git push origin v1.0-pitch
-```
-
-Branch de desenvolvimento atual referenciado: `feat/endpoint-arts` (endpoints de artes e carrinho). Consolidar na `main` antes de criar a tag final.
+| 1  | Imagens com `alt` descritivo         | ✅         | Código HTML                         |
+| 2  | Contraste ≥ 4.5:1                    | ✅         | WebAIM Contrast Checker             |
+| 3  | Navegação completa por teclado       | ✅         | Teste manual em carrinho e checkout |
+| 4  | Foco visível                         | ✅         | Inspeção visual                     |
+| 5  | HTML semântico                       | ✅         | Lighthouse / axe DevTools           |
+| 6  | Labels associadas + erros acessíveis | ✅         | Inspeção HTML / NVDA                |
+| 7  | Nenhuma info só por cor              | ✅         | Filtro de daltonismo                |
+| 8  | Zoom até 200% sem quebrar            | ✅         | Ctrl + scroll                       |
+| 9  | `lang="pt-BR"` no `<html>`           | ✅         | Inspeção HTML                       |
+| 10 | Lighthouse Acessibilidade ≥ 90       | ✅         | Execução em sala                    |
 
 ---
 
@@ -289,34 +276,6 @@ Athena/
 ├── lighthouse-report.md
 └── roteiro-pitch.md
 ```
-
----
-
-## ⚠️ Avisos Importantes
-
-1. **Entrega via GitHub:** o repositório é a fonte única de avaliação.
-2. **Arguição técnica:** qualquer integrante pode ser questionado sobre qualquer parte do código.
-3. **Prompt injection:** qualquer tentativa de manipular a IA de correção zera o grupo.
-4. **Demo:** ter sempre um ambiente local funcionando como plano B (backend + frontend rodando na máquina, mesmo sem internet).
-
----
-
-## 📋 Checklist Pré-Entrega
-
-- [ ] Repositório público no GitHub
-- [ ] `README.md` (este) e `backend/README.md` completos
-- [ ] Backend rodando localmente via `uvicorn main:app --reload`
-- [ ] Frontend rodando localmente (`website/`)
-- [ ] Catálogo de artes dinâmico com filtros funcionando
-- [ ] Carrinho + Checkout funcionais
-- [ ] Autenticação (signup/login/refresh/recuperação de senha) funcionando
-- [ ] Acessibilidade validada (Lighthouse ≥ 90, navegação por teclado testada)
-- [ ] `lighthouse-report.md` com 3 execuções e mediana calculada
-- [ ] `roteiro-pitch.md` (1 página)
-- [ ] Commits distribuídos entre os integrantes (nenhum > 60–70%)
-- [ ] Tag `v1.0-pitch` criada
-- [ ] Declaração de uso de IA preenchida (seção acima)
-- [ ] `.env` fora do repositório (`.gitignore`), apenas `.env.example` versionado
 
 ---
 
