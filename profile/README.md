@@ -63,7 +63,7 @@ Marketplace de **artes/quadros**, conectando artistas independentes a compradore
 
 ### Banco de Dados
 
-Modelagem relacional normalizada cobrindo: usuários (clientes/artistas/administradores), endereços, telefones, competências, produtos (artes), imagens das artes, pedidos, itens do pedido, cartões, pagamentos e recuperação de senha. Ver detalhes completos em [`backend/README.md`](../../backend/README.md#🗄️-modelagem-de-dados).
+Modelagem relacional normalizada cobrindo: usuários (clientes/artistas/administradores), endereços, telefones, competências, produtos (artes), imagens das artes, pedidos, itens do pedido, cartões, pagamentos e recuperação de senha. Ver detalhes sobre as tabelas no README do repositório [`backend`](https://github.com/athena-ecommerce/backend).
 
 ### Acessibilidade (WCAG 2.1 AA)
 
